@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>California House Project</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    
+    .login {
+      width: 500px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    input {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    
+    button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    
+    .row {
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .row:nth-of-type(odd) {
+      background-color: #eee;
+    }
+    
+    .input-row {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>California House Project</h1>
+    
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+      <div class="row input-row">
+        <label for="MedInc">MedInc</label>
+        <input type="text" name="MedInc" placeholder="MedInc" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="HouseAge">HouseAge</label>
+        <input type="text" name="HouseAge" placeholder="HouseAge" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="AveRooms">AveRooms</label>
+        <input type="text" name="AveRooms" placeholder="AveRooms" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="AveBedrms">AveBedrms</label>
+        <input type="text" name="AveBedrms" placeholder="AveBedrms" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="Population">Population</label>
+        <input type="text" name="Population" placeholder="Population" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="AveOccup">AveOccup</label>
+        <input type="text" name="AveOccup" placeholder="AveOccup" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="Latitude">Latitude</label>
+        <input type="text" name="Latitude" placeholder="Latitude" required="required" />
+      </div>
+      <div class="row input-row">
+        <label for="Longitude">Longitude</label>
+        <input type="text" name="Longitude" placeholder="Longitude" required="required" />
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    
+    <h2>
+      THE CALIFORNIA PREDICTION IS: {{result}}
+    </h2>
+  </div>
+</body>
+</html>
